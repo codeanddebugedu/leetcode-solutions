@@ -1,3 +1,9 @@
+"""
+Time Complexity = O(log10 n), n is the number
+Space Complexity = O(1)
+"""
+
+
 def reverseNumberOptimal(num: int) -> int:
     n = num
     reversed_number = 0
