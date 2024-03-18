@@ -23,7 +23,6 @@ arr = [64, 25, 12, 22, 11]
 bubble_sort(arr)
 print(arr)
 
-
 # Bubble Sort Implementation with Optimization using flag
 
 """
