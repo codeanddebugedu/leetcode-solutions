@@ -25,6 +25,25 @@ print(arr)
 
 
 # Bubble Sort Implementation with Optimization using flag
+
+"""
+Time complexity - O(n^2) (Average and worst)
+In the worst-case scenario, the list is in reverse order, 
+causing both outer and inner for loop to be executed at fullest.
+
+Time complexity - O(n) (Best case)
+In the best-case scenario, the list is already sorted.
+This means that during each pass through the list, there are no elements that need to be swapped
+When inner for loop will run for first time, the if conditon (if arr[j] > arr[j + 1]:) will never be true
+as the list is already sorted and flag 'swap' will remain False indicating no swaps were done
+Hence, the inner for loop will get executed only once till 'n-1' which is nothing but first value of 'i'.
+O(n-1) ~ O(n)
+
+Space complexity - O(1)
+does not require any extra space
+"""
+
+
 def bubble_sort1(arr):
     n = len(arr)
     for i in range(n - 1, 0, -1):
