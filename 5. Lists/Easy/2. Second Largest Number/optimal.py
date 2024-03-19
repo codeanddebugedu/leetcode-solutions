@@ -22,7 +22,7 @@ def getSecondOrderElements(n: int, a: List[int]) -> List[int]:
             second_small = small
             small = a[i]
         elif a[i] < second_small and a[i] != small:
-            second_small = small
+            second_small = a[i]
         if a[i] > large:
             second_large = large
             large = a[i]
