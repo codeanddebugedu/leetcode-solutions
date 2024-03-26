@@ -7,6 +7,8 @@ n is number of elements in nums
 Space complexity -> O(1)
 """
 
+# Also known as Kadane’s Algorithm
+
 
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
