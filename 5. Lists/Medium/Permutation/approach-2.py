@@ -2,7 +2,7 @@
 Time complexity -> O(N! * N)
 N is number of elements in nums
 
-Space complexity -> O(N)
+Space complexity -> O(1)
 """
 
 ans = []

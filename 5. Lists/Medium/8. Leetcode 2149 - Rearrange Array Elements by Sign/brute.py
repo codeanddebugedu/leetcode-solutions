@@ -21,7 +21,6 @@ class Solution:
 
         for i in range(len(pos)):
             nums[2 * i] = pos[i]
-        for i in range(len(neg)):
             nums[2 * i + 1] = neg[i]
 
         return nums
