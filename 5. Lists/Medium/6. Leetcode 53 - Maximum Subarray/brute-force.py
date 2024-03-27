@@ -12,7 +12,7 @@ class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         maxi = float("-inf")
         n = len(nums)
-        for i in range(len(n)):
+        for i in range(n):
             for j in range(i, n):
                 summ = 0
 
