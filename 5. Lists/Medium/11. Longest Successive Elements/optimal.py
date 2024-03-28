@@ -17,7 +17,7 @@ def longestSuccessiveElements(arr: List[int]) -> int:
     for num in arr:
         my_set.add(num)
     longest = 0
-    for num in arr:
+    for num in my_set:
         if num - 1 not in my_set:
             x = num
             count = 1

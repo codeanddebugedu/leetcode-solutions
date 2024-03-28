@@ -10,7 +10,7 @@ ans = []
 
 def permutation(nums, index):
     if index == len(nums):
-        ans.append(nums[:])
+        ans.append(nums.copy())
         return
     for i in range(index, len(nums)):
         nums[index], nums[i] = nums[i], nums[index]
