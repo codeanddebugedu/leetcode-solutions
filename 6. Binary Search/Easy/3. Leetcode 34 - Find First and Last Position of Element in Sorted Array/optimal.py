@@ -29,5 +29,7 @@ class Solution:
             return index
 
         left = binarySearch(nums, target, True)
+        if left == -1:
+            return [-1, -1]
         right = binarySearch(nums, target, False)
         return [left, right]
