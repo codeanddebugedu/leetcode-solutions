@@ -13,7 +13,7 @@ def floorSqrt(n):
     while low <= high:
         mid = (low + high) // 2
         if mid * mid <= n:
-            ans = int(mid)
+            ans = mid
             low = mid + 1
         else:
             high = mid - 1
