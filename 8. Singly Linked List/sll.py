@@ -27,6 +27,7 @@ class SinglyLinkedList:
             while current is not None:
                 print(current.val, end=" ")
                 current = current.next
+            print()
 
     def insert_at(self, data, position):
         new_node = Node(data)
@@ -45,16 +46,43 @@ class SinglyLinkedList:
             # if prev_node is not None:
             prev_node.next = new_node
 
+    def delete_head(self):
+        if not self.head:
+            print("Cannot delete, SLL is already empty")
+        else:
+            self.head = self.head.next
+
+    def delete(self, data):
+        temp = self.head
+        if temp.next is not None:
+            if temp.val == data:
+                self.head = temp.next
+                return
+            else:
+                found = False
+                while temp is not None:
+                    if temp.val == data:
+                        found = True
+                        break
+                    prev = temp
+                    temp = temp.next
+
+                if found:
+                    prev.next = temp.next
+                    return
+                else:
+                    print("Node not found")
+
 
 sll = SinglyLinkedList()
 sll.append(100)
 sll.append(200)
 sll.append(50)
 sll.append(20)
-sll.traverse()
-print()
 sll.insert_at(43, 0)
-sll.traverse()
-print()
 sll.insert_at(400, 3)
+sll.traverse()
+sll.delete_head()
+sll.traverse()
+sll.delete(2000)
 sll.traverse()
