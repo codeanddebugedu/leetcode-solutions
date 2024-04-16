@@ -22,9 +22,9 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            if slow is fast:
+            if slow == fast:
                 slow = head
-                while slow is not fast:
+                while slow != fast:
                     slow = slow.next
                     fast = fast.next
                 return slow

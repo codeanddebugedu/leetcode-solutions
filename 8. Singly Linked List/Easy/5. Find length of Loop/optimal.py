@@ -21,7 +21,7 @@ def lengthOfLoop(head: Node) -> int:
     while fast and fast.next:
         slow = slow.next
         fast = fast.next.next
-        if slow is fast:
+        if slow == fast:
             slow = slow.next
             count = 1
             while slow is not fast:
