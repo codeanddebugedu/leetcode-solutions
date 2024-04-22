@@ -2,7 +2,7 @@ from typing import List
 
 """
 Time complexity -> O(N^2)
-N is the number of nodes
+N is the number of elements in arr
 
 Space complexity -> O(3)
 """

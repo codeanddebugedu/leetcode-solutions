@@ -1,8 +1,6 @@
-from typing import List
-
 """
 Time complexity -> O(N^2)
-N is the number of nodes
+N is the number of characters in s
 
 Space complexity -> O(1)
 """

@@ -2,7 +2,7 @@ from typing import List
 
 """
 Time complexity -> O(N)
-N is the number of nodes
+N is the number of elements in arr
 
 Space complexity -> O(1)
 """
@@ -21,7 +21,7 @@ def findMaxFruits(arr: List[int], n: int) -> int:
             if fruits[arr[left]] == 0:
                 del fruits[arr[left]]
             left += 1
-        if len(fruits) <= 2:  
+        if len(fruits) <= 2:
             max_length = max(max_length, right - left + 1)
         right += 1
     return max_length

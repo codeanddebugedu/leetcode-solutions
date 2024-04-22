@@ -18,5 +18,5 @@ def permutation(nums, index):
         nums[index], nums[i] = nums[i], nums[index]
 
 
-permutation([1, 2, 3], 0)
+permutation([1, 2, 3, 4], 0)
 print(ans)
