@@ -11,7 +11,9 @@ Space complexity -> O(1)
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
         """If k equals the length of the cardPoints,
-        the maximum points are achieved by picking all cards."""
+        the maximum points are achieved by picking all cards.
+        TC - O(N) (sum() function takes N time, where N is len cardPoints)
+        SC - O(1), No extra space used."""
         if k == len(cardPoints):
             return sum(cardPoints)
 
