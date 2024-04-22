@@ -10,6 +10,11 @@ Space complexity -> O(1)
 
 class Solution:
     def maxScore(self, cardPoints: List[int], k: int) -> int:
+        """If k equals the length of the cardPoints,
+        the maximum points are achieved by picking all cards."""
+        if k == len(cardPoints):
+            return sum(cardPoints)
+
         max_sum = 0
         left_sum = 0
         right_sum = 0
