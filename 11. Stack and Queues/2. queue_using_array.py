@@ -13,7 +13,8 @@ class Queue:
     def dequeue(self):
         """Remove and return the front item of the queue. Raise exception if the queue is empty."""
         if self.is_empty():
-            raise IndexError("dequeue from empty queue")
+            print("dequeue from empty queue")
+            return
         return self.items.pop(0)  # pop from the front of the list
 
     def peek(self):
@@ -39,5 +40,3 @@ if __name__ == "__main__":
     print(f"Queue content = {queue}")
     print(f"Dequeued item = {queue.dequeue()}")
     print(f"Queue content = {queue}")
-    print(f"Front item after dequeue = {queue.peek()}")
-    print(f"Queue is empty = {queue.is_empty()}")
