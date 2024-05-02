@@ -10,7 +10,7 @@ def backtrack(subset: List[int], index: int, total: int):
     if total == k:
         return 1
     elif total > k:
-        return
+        return 0
     if index >= len(nums):
         return 0
     subset.append(nums[index])
