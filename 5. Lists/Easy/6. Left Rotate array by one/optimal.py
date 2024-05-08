@@ -16,3 +16,12 @@ def rotateArray(arr: [], n: int) -> []:
         arr[i] = arr[i + 1]
     arr[n - 1] = temp  # assign the value of the variable at the last index
     return arr
+
+#Rotating using Slicing
+#got "You are better than 100%" using the below
+"""
+def rotateArray(arr: [], n: int) -> []:
+    # Write your code from here.
+     
+    return arr[1:] + [arr[0]]
+"""
