@@ -3,6 +3,7 @@ Question link
 
 https://www.codingninjas.com/studio/problems/k-most-occurrent-numbers_625382
 """
+
 from typing import List
 
 
@@ -16,10 +17,10 @@ def getFrequencies(v: List[int]) -> List[int]:
         else:
             hashMap[num] = 1
 
-    minFreq = float('inf')
-    minElement = float('inf')
-    maxFreq = float('-inf')
-    maxElement = float('inf')
+    minFreq = float("inf")
+    minElement = float("inf")
+    maxFreq = float("-inf")
+    maxElement = float("inf")
 
     for key, freq in hashMap.items():
         if freq > maxFreq or freq == maxFreq and key < maxElement:
@@ -34,5 +35,5 @@ def getFrequencies(v: List[int]) -> List[int]:
 
 a = [10, 10, 10, 9, 9, 9]
 print(getFrequencies(a))
-b = [1,2,1,1,3,4]
+b = [1, 2, 1, 1, 3, 4]
 print(getFrequencies(b))
