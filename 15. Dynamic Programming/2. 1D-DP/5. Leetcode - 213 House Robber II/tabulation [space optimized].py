@@ -29,4 +29,6 @@ class Solution:
     def rob(self, nums: List[int]) -> int:
         if len(nums) == 1:
             return nums[0]
-        return max(self.solve(nums[1:]), self.solve(nums[:-1]))
+        ans1 = self.solve(nums[1:])
+        ans2 = self.solve(nums[:-1])
+        return max(ans1, ans2)
