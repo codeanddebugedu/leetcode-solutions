@@ -29,9 +29,8 @@ class Solution:
                 # Check if taking the current element is possible without exceeding the target.
                 if arr[ind] <= target:
                     taken = dp[ind - 1][target - arr[ind]]
-                dp[ind][target] = (
-                    notTaken or taken
-                )  # Update the DP table with the result.
+                # Update the DP table with the result.
+                dp[ind][target] = notTaken or taken
 
         # The final result is stored in the bottom-right cell of the DP table.
         return dp[n - 1][k]
