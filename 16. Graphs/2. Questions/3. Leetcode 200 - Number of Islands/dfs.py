@@ -19,7 +19,7 @@ class Solution:
                 or visited[i][j] != "1"
             ):
                 return
-            visited[i][j] = "0"  # mark as visited
+            visited[i][j] = "2"  # mark as visited
             dfs(i + 1, j)
             dfs(i - 1, j)
             dfs(i, j + 1)

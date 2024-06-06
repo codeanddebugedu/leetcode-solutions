@@ -26,7 +26,7 @@ class Solution:
                             and 0 <= y < len(grid_copy[0])
                             and grid_copy[x][y] == "1"
                         ):
-                            grid_copy[x][y] = "0"  # mark as visited
+                            grid_copy[x][y] = "2"  # mark as visited
                             for dx, dy in directions:
                                 queue.append((x + dx, y + dy))
 
