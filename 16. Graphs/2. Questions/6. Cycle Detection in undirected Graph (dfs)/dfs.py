@@ -17,7 +17,7 @@ class Solution:
             return False
 
         for i in range(V):
-            if not visited[i]:
+            if visited[i] == 0:
                 if dfs(i, -1):
                     return True
         return False
