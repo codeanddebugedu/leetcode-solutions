@@ -21,28 +21,31 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if head is None:
             return None
-        cnt = 0
-        temp = head
 
-        while temp is not None:
-            cnt += 1
-            temp = temp.next
+        length = 0
+        current_node = head
 
-        if cnt == n:
-            newhead = head.next
+        # Calculate the length of the linked list
+        while current_node is not None:
+            length += 1
+            current_node = current_node.next
+
+        # If the node to remove is the head of the list
+        if length == n:
+            new_head = head.next
             head = None
-            return newhead
+            return new_head
 
-        res = cnt - n
-        temp = head
+        # Find the node just before the one we want to remove
+        position_to_stop = length - n
+        current_node = head
 
-        while temp is not None:
-            res -= 1
-            if res == 0:
+        while current_node is not None:
+            position_to_stop -= 1
+            if position_to_stop == 0:
                 break
-            temp = temp.next
+            current_node = current_node.next
 
-        delNode = temp.next
-        temp.next = temp.next.next
-        delNode = None
+        # Remove the nth node from the end
+        current_node.next = current_node.next.next
         return head

@@ -15,17 +15,23 @@ class ListNode:
 
 class Solution:
     def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        arr = []
-        temp = head
-        while temp:
-            arr.append(temp.val)
-            temp = temp.next
-        arr.sort()
+        values = []
+        current_node = head
 
-        temp = head
+        # Collect all values from the linked list
+        while current_node:
+            values.append(current_node.val)
+            current_node = current_node.next
+
+        # Sort the values
+        values.sort()
+
+        # Reassign the sorted values to the linked list nodes
+        current_node = head
         index = 0
-        while temp:
-            temp.val = arr[index]
+        while current_node:
+            current_node.val = values[index]
             index += 1
-            temp = temp.next
+            current_node = current_node.next
+
         return head

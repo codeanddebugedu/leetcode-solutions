@@ -31,7 +31,5 @@ class Solution:
             fastp = fastp.next
             slowp = slowp.next
 
-        delNode = slowp.next
         slowp.next = slowp.next.next
-        delNode = None
         return head
