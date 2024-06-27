@@ -53,47 +53,23 @@ class Solution:
         return node
 
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        # 'temp' is used to traverse the list
         temp = head
-
-        # 'prevGroupLastNode' keeps track of the last node of the previous reversed group
         prevGroupLastNode = None
 
-        # Loop through the entire list
         while temp is not None:
-            # Find the Kth node from the current node
             kThNode = self.findKthNode(temp, k)
-
-            # If the Kth node does not exist, we have less than k nodes left
             if kThNode is None:
-                # If there was a previous group, connect its last node to the current node
                 if prevGroupLastNode:
                     prevGroupLastNode.next = temp
-
-                # Exit the loop as we can't form another full group
                 break
-
-            # 'nextGroupFirstNode' holds the node after the Kth node
             nextGroupFirstNode = kThNode.next
-
-            # Disconnect the Kth node to prepare for reversing the group
             kThNode.next = None
-
-            # Reverse the current group of nodes
             self.reverseLinkedList(temp)
-
-            # Update the head of the list if we're reversing the first group
             if temp == head:
                 head = kThNode
             else:
-                # Connect the last node of the previous group to the first node of the reversed group
                 prevGroupLastNode.next = kThNode
-
-            # Update 'prevGroupLastNode' to the last node of the current group
             prevGroupLastNode = temp
-
-            # Move 'temp' to the start of the next group
             temp = nextGroupFirstNode
 
-        # Return the head of the new list
         return head
