@@ -16,7 +16,8 @@ def backtrack(subset: List[int], index: int, total: int):
         return False
     subset.append(nums[index])
     Sum = total + nums[index]
-    if backtrack(subset, index + 1, Sum):
+    pick = backtrack(subset, index + 1, Sum)
+    if pick == True:
         return True
     e = subset.pop()
     Sum -= e
