@@ -21,6 +21,6 @@ class Solution:
         n = len(nums)
         k %= n  # Handle cases where k > n
 
+        reverse(n - k, n - 1)  # Reverse the last k element
+        reverse(0, n - k - 1)  # Reverse the remaining elements
         reverse(0, n - 1)  # Reverse the entire array
-        reverse(0, k - 1)  # Reverse the first k elements
-        reverse(k, n - 1)  # Reverse the remaining elements
