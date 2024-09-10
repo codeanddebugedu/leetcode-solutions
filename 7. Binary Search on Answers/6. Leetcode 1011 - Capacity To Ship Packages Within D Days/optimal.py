@@ -6,12 +6,12 @@ class Solution:
         days = 1
         load = 0
         n = len(weights)
+
         for i in range(n):
-            if load + weights[i] > cap:
+            load += weights[i]
+            if load > cap:
                 days += 1
-                load = weights[i]
-            else:
-                load += weights[i]
+                load = weights[i]  # Start a new day with the current weight
         return days
 
     def shipWithinDays(self, weights: List[int], days: int) -> int:
