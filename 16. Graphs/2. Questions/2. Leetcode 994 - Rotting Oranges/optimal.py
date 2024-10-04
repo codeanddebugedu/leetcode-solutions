@@ -68,4 +68,6 @@ class Solution:
 
         # return the number of minutes taken to make all the fresh oranges to be rotten
         # return -1 if there are fresh oranges left in the grid (there were no adjacent rotten oranges to make them rotten)
-        return minutes_passed if fresh_cnt == 0 else -1
+        if fresh_cnt > 0:
+            return -1
+        return minutes_passed
