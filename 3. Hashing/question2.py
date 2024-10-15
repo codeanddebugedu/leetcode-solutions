@@ -12,7 +12,7 @@ def getFrequencies(v: List[int]) -> List[int]:
     n = len(v)
     hashMap = {}
     for num in v:
-        if hashMap.__contains__(num):
+        if num in hashMap:
             hashMap[num] = 1 + hashMap[num]
         else:
             hashMap[num] = 1
