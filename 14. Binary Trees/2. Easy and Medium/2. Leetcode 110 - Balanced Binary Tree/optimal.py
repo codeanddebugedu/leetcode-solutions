@@ -18,8 +18,10 @@ class Solution:
         if not root:
             return 0
         leftHeight = self.calculateHeight(root.left)
+        if leftHeight == -1:
+            return -1
         rightHeight = self.calculateHeight(root.right)
-        if leftHeight == -1 or rightHeight == -1:
+        if rightHeight == -1:
             return -1
         if abs(leftHeight - rightHeight) > 1:
             return -1
