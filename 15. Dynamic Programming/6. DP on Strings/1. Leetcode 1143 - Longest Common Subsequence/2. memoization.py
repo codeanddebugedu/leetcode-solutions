@@ -17,10 +17,9 @@ class Solution:
         if s1[ind1] == s2[ind2]:
             return 1 + self.solve(s1, s2, ind1 - 1, ind2 - 1, dp)
         else:
-            dp[ind1][ind2] = max(
-                self.solve(s1, s2, ind1 - 1, ind2, dp),
-                self.solve(s1, s2, ind1, ind2 - 1, dp),
-            )
+            p1 = self.solve(s1, s2, ind1 - 1, ind2, dp)
+            p2 = (self.solve(s1, s2, ind1, ind2 - 1, dp),)
+            dp[ind1][ind2] = max(p1, p2)
             return dp[ind1][ind2]
 
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:

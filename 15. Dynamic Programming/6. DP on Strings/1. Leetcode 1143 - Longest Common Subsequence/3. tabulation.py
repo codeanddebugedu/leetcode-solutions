@@ -21,8 +21,7 @@ class Solution:
                 if text1[ind1 - 1] == text2[ind2 - 1]:
                     dp[ind1][ind2] = 1 + dp[ind1 - 1][ind2 - 1]
                 else:
-                    dp[ind1][ind2] = max(
-                        dp[ind1 - 1][ind2],
-                        dp[ind1][ind2 - 1],
-                    )
+                    p1 = dp[ind1 - 1][ind2]
+                    p2 = dp[ind1][ind2 - 1]
+                    dp[ind1][ind2] = max(p1, p2)
         return dp[n][m]
