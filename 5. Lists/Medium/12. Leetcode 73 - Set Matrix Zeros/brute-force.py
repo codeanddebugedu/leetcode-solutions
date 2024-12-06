@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    def markMinusOne(self, matrix, row, col):
+    def markInfinity(self, matrix, row, col):
         r = len(matrix)
         c = len(matrix[0])
         for i in range(r):
@@ -21,7 +21,7 @@ class Solution:
         for i in range(r):
             for j in range(c):
                 if matrix[i][j] == 0:
-                    self.markMinusOne(matrix, i, j)
+                    self.markInfinity(matrix, i, j)
 
         for i in range(r):
             for j in range(c):
