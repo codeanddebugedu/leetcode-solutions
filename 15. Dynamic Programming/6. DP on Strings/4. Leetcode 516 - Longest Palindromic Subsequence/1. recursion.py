@@ -17,5 +17,6 @@ class Solution:
                 self.solve(s1, s2, ind1 - 1, ind2), self.solve(s1, s2, ind1, ind2 - 1)
             )
 
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        return self.solve(text1, text2, len(text1) - 1, len(text2) - 1)
+    def longestPalindromeSubseq(self, s: str) -> int:
+        n = len(s)
+        return self.solve(s, s[::-1], n - 1, n - 1)

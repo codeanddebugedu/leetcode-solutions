@@ -5,11 +5,8 @@ N is number of elements in nums
 Space complexity -> O(N)
 """
 
-ans = []
-ds = []
 
-
-def permutation(nums, freq):
+def permutation(nums, freq, ds, ans):
     if len(ds) == len(nums):
         ans.append(ds.copy())
         return
@@ -17,10 +14,11 @@ def permutation(nums, freq):
         if freq[i] == 0:
             ds.append(nums[i])
             freq[i] = 1
-            permutation(nums, freq)
+            permutation(nums, freq, ds, ans)
             freq[i] = 0
             ds.pop()
 
 
-permutation([1, 2, 3], [0, 0, 0])
+ans = []
+permutation([5, 7, 9, 1], [0, 0, 0, 0], [], ans)
 print(ans)
