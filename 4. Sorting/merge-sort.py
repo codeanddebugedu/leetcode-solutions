@@ -5,7 +5,7 @@ Space Complexity: O(n)
 """
 
 
-def merge(left, right):
+def merge_array(left, right):
     merged = []
     i, j = 0, 0
 
@@ -44,7 +44,7 @@ def merge_sort(arr):
     right_half = merge_sort(right_half)
 
     # Merge the sorted halves
-    return merge(left_half, right_half)
+    return merge_array(left_half, right_half)
 
 
 arr = [64, 34, 25, 12, 22, 11, 90]
