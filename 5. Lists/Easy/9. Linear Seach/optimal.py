@@ -1,4 +1,4 @@
-#This is a linear search code with time complexity o(n) 
+#This is a linear uptodate search code with time complexity o(n) 
 # :')
 
 def linearSearch(n: int, num: int, arr: [int]) -> int:
