@@ -10,7 +10,7 @@ class Solution:
             if nums[i] == 0:
                 break
             i += 1
-        else:
+        if i == len(nums):
             return
         j = i + 1
         while j < len(nums):
