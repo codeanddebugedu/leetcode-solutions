@@ -18,6 +18,11 @@ class Solution:
     # Function to return a list containing the DFS traversal of the graph.
     def dfsOfGraph(self, V, adj):
         result = []
-        visited = [0] * V
-        self.dfs(0, visited, result, adj)
+        visited = [0] * (V + 1)
+        self.dfs(1, visited, result, adj)
         return result
+
+
+obj = Solution()
+x = obj.dfsOfGraph(5, [[], [2, 3], [1, 4, 5], [1, 4], [2, 3, 5], [2, 4]])
+print(x)
