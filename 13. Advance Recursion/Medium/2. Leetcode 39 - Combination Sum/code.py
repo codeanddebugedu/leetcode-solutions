@@ -15,14 +15,15 @@ class Solution:
             if target == 0:
                 result.append(subset.copy())
                 return
+            elif target < 0:
+                return
             if index >= len(candidates):
                 return
-            if candidates[index] <= target:
-                subset.append(candidates[index])
-                target -= candidates[index]
-                backtrack(subset, index, target)
-                subset.pop()
-                target += candidates[index]
+            subset.append(candidates[index])
+            target -= candidates[index]
+            backtrack(subset, index, target)
+            subset.pop()
+            target += candidates[index]
             backtrack(subset, index + 1, target)
 
         result = []

@@ -7,6 +7,8 @@ class Solution:
             if target == 0:
                 result.add(tuple(subset.copy()))
                 return
+            elif target < 0:
+                return
             if index >= len(candidates):
                 return
             subset.append(candidates[index])
