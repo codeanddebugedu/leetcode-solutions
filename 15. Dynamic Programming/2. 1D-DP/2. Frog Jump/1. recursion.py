@@ -33,11 +33,13 @@ class Solution:
         left = self.energyUsed(height, index - 1) + abs(
             height[index] - height[index - 1]
         )
-        right = float("inf")
+
         if index > 1:
             right = self.energyUsed(height, index - 2) + abs(
                 height[index] - height[index - 2]
             )
+        else:
+            right = float("inf")
         return min(left, right)
 
     def minimumEnergy(self, height, n):
