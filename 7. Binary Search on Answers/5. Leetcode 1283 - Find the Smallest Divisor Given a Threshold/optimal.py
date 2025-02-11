@@ -15,19 +15,21 @@ from typing import List
 
 
 class Solution:
-    def getThreshold(self, x, nums, threshold):
+    def calTotal(self, nums, n):
         total = 0
         for num in nums:
-            total = total + math.ceil(num / x)
-        return total <= threshold
+            total = total + math.ceil(num / n)
+        return total
 
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:
-        ans = 0
+        maxi = max(nums)
         low = 1
-        high = max(nums)
+        high = maxi
+        ans = 0
         while low <= high:
             mid = (low + high) // 2
-            if self.getThreshold(mid, nums, threshold):
+            total = self.calTotal(nums, mid)
+            if total <= threshold:
                 ans = mid
                 high = mid - 1
             else:
