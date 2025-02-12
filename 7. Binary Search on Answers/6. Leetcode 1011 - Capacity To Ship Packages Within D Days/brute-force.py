@@ -15,14 +15,15 @@ class Solution:
         return total_days
 
     def shipWithinDays(self, weights: List[int], days: int) -> int:
-        # Do the below calculation using FOR loop
-        low = max(weights)
-        high = sum(weights)
-        while low <= high:
-            mid = (low + high) // 2
-            numberOfDays = self.find_days(weights, mid)
-            if numberOfDays <= days:
-                high = mid - 1
-            else:
-                low = mid + 1
-        return low
+        start_weight = max(weights)
+        end_weight = sum(weights)
+        for w in range(start_weight, end_weight + 1):
+            total_days_taken = self.find_days(weights, w)
+            print(w, total_days_taken)
+            if total_days_taken <= days:
+                # return w
+                pass
+
+
+obj = Solution()
+obj.shipWithinDays([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5)
