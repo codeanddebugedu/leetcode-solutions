@@ -77,5 +77,7 @@ class Solution:
 
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         ext_left = self.binarySearchLeft(nums, target)
+        if ext_left == -1:
+            return [-1, -1]
         ext_right = self.binarySearchRight(nums, target)
         return [ext_left, ext_right]

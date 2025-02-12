@@ -15,12 +15,15 @@ class Solution:
             return True
         if node1 is None or node2 is None:
             return False
-
-        return (
-            node1.val == node2.val
-            and self.check(node1.left, node2.left)
-            and self.check(node1.right, node2.right)
-        )
+        if node1.val != node2.val:
+            return False
+        leftSide = self.check(node1.left, node2.left)
+        if leftSide == False:
+            return False
+        rightSide = self.check(node1.right, node2.right)
+        if rightSide == False:
+            return False
+        return True
 
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
         return self.check(p, q)
