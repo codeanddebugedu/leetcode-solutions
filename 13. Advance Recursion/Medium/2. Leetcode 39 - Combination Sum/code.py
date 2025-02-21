@@ -10,22 +10,22 @@ essentially branches the computation into two possible paths.
 
 
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        def backtrack(subset: List[int], index: int, target: int):
-            if target == 0:
-                result.append(subset.copy())
-                return
-            elif target < 0:
-                return
-            if index >= len(candidates):
-                return
-            subset.append(candidates[index])
-            target -= candidates[index]
-            backtrack(subset, index, target)
-            subset.pop()
-            target += candidates[index]
-            backtrack(subset, index + 1, target)
+    def backtrack(self, subset: List[int], index: int, target: int, candidates, result):
+        if target == 0:
+            result.append(subset.copy())
+            return
+        elif target < 0:
+            return
+        if index >= len(candidates):
+            return
+        subset.append(candidates[index])
+        target -= candidates[index]
+        self.backtrack(subset, index, target, candidates, result)
+        subset.pop()
+        target += candidates[index]
+        self.backtrack(subset, index + 1, target, candidates, result)
 
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         result = []
-        backtrack([], 0, target)
+        self.backtrack([], 0, target, candidates, result)
         return result
