@@ -19,14 +19,12 @@ from typing import Optional
 
 
 class Solution:
+    def solve(self, node):
+        if node == None:
+            return 0
+        leftHeight = self.solve(node.left)
+        rightHeight = self.solve(node.right)
+        return 1 + max(leftHeight, rightHeight)
 
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-
-        def maxDepthRecursive(root):
-            if not root:
-                return 0
-            leftHeight = maxDepthRecursive(root.left)
-            rightHeight = maxDepthRecursive(root.right)
-            return 1 + max(leftHeight, rightHeight)
-
-        return maxDepthRecursive(root)
+        return self.solve(root)

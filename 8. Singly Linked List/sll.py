@@ -52,16 +52,17 @@ class SinglyLinkedList:
         else:
             self.head = self.head.next
 
-    def delete(self, data):
+    def delete(self, val):
         temp = self.head
         if temp.next is not None:
-            if temp.val == data:
+            if temp.val == val:
                 self.head = temp.next
                 return
             else:
                 found = False
+                prev = None
                 while temp is not None:
-                    if temp.val == data:
+                    if temp.val == val:
                         found = True
                         break
                     prev = temp

@@ -39,12 +39,11 @@ class Solution:
         # Find the node just before the one we want to remove
         position_to_stop = length - n
         current_node = head
+        count = 1
 
-        while current_node is not None:
-            position_to_stop -= 1
-            if position_to_stop == 0:
-                break
+        while count < position_to_stop:
             current_node = current_node.next
+            count += 1
 
         # Remove the nth node from the end
         current_node.next = current_node.next.next
