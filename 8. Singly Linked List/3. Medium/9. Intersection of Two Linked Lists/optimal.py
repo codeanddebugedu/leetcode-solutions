@@ -15,10 +15,16 @@ class Solution:
         if not headA or not headB:
             return None
 
-        pA, pB = headA, headB
+        temp1, temp2 = headA, headB
 
-        while pA != pB:
-            pA = pA.next if pA else headB
-            pB = pB.next if pB else headA
+        while temp1 != temp2:
+            if temp1 is not None:
+                temp1 = temp1.next
+            else:
+                temp1 = headB
+            if temp2 is not None:
+                temp2 = temp2.next
+            else:
+                temp2 = headA
 
-        return pA
+        return temp1

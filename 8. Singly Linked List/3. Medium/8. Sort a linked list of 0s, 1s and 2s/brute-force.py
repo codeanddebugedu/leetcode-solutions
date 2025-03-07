@@ -14,15 +14,13 @@ class Solution:
                 cnt2 += 1
             temp = temp.next
         temp = head
-        while temp:
-            if cnt0 > 0:
-                temp.data = 0
-                cnt0 -= 1
-            elif cnt1 > 0:
-                temp.data = 1
-                cnt1 -= 1
-            elif cnt2 > 0:
-                temp.data = 2
-                cnt2 -= 1
+        for _ in range(cnt0):
+            temp.data = 0
+            temp = temp.next
+        for _ in range(cnt1):
+            temp.data = 1
+            temp = temp.next
+        for _ in range(cnt2):
+            temp.data = 2
             temp = temp.next
         return head
