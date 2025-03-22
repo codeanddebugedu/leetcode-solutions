@@ -13,11 +13,16 @@ Space complexity -> O(1)
 """
 
 
-def removeDuplicates(head: Node) -> Node:
-    temp = head
-    while temp.next:
-        if temp.data == temp.next.data:
-            temp.next = temp.next.next
-        else:
-            temp = temp.next
+def removeDuplicates(self, head):
+    cur = head
+    while cur:
+        if cur.prev and cur.prev.data == cur.data:
+            if cur.prev == head:
+                cur.prev = None
+                head = cur
+            else:
+                cur.prev.prev.next = cur
+                cur.prev = cur.prev.prev
+
+        cur = cur.next
     return head
