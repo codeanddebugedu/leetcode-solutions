@@ -1,21 +1,14 @@
-from sys import *
-from collections import *
-from math import *
-
-from typing import List
-
-
-def subsetSum(num: List[int]) -> List[int]:
-    def backtrack(subset, index):
-        if index >= len(num):
+class Solution:
+    def solve(self, nums, index, subset, result):
+        if index >= len(nums):
             result.append(sum(subset))
             return
-        subset.append(num[index])
-        backtrack(subset, index + 1)
+        subset.append(nums[index])
+        self.solve(nums, index + 1, subset, result)
         subset.pop()
-        backtrack(subset, index + 1)
+        self.solve(nums, index + 1, subset, result)
 
-    result = []
-    backtrack([], 0)
-    result.sort()
-    return result
+    def subsetSums(self, arr):
+        result = []
+        self.solve(arr, 0, [], result)
+        return result
