@@ -19,8 +19,8 @@ def backtrack(subset: List[int], index: int, total: int):
     subset.append(nums[index])
     Sum = total + nums[index]
     backtrack(subset, index + 1, Sum)
-    e = subset.pop()
-    Sum -= e
+    subset.pop()
+    Sum = total
     backtrack(subset, index + 1, Sum)
 
 
