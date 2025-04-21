@@ -3,33 +3,31 @@ class Queue:
         self.items = []
 
     def is_empty(self):
-        """Check if the queue is empty."""
         return len(self.items) == 0
 
     def enqueue(self, item):
-        """Add an item to the rear of the queue."""
         self.items.append(item)
 
     def dequeue(self):
-        """Remove and return the front item of the queue. Raise exception if the queue is empty."""
-        if self.is_empty():
-            print("dequeue from empty queue")
+        if len(self.items) == 0:
+            print("Cannt deque from empty queue")
             return
-        return self.items.pop(0)  # pop from the front of the list
+        x = self.items.pop(0)
+        return x
 
-    def peek(self):
-        """Return the front item of the queue without removing it. Raise exception if the queue is empty."""
-        if self.is_empty():
-            raise IndexError("peek from empty queue")
+    def front(self):
+        if len(self.items) == 0:
+            print("Cannot front, queue is empty")
+            return
         return self.items[0]
 
-    def size(self):
-        """Return the number of items in the queue."""
-        return len(self.items)
+    def rear(self):
+        if len(self.items) == 0:
+            print("Cannot rear, queue is empty")
+        return self.items[-1]
 
-    def __str__(self):
-        """Return a string representation of the queue."""
-        return str(self.items)
+    def size(self):
+        return len(self.items)
 
 
 if __name__ == "__main__":

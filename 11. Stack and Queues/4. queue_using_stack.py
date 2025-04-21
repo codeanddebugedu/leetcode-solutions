@@ -1,55 +1,49 @@
-class QueueUsingStacks:
+class StackQueue:
     def __init__(self):
-        self.enqueue_stack = []
-        self.dequeue_stack = []
+        self.st1 = []
+        self.st2 = []
 
-    def enqueue(self, item):
-        """Add an item to the rear of the queue."""
-        self.enqueue_stack.append(item)
+    def push(self, x):
+        while self.st1:
+            self.st2.append(self.st1.pop())
+        self.st1.append(x)
+        while self.st2:
+            self.st1.append(self.st2.pop())
 
-    def dequeue(self):
-        """Remove and return the front item of the queue."""
-        if self.is_empty():
-            raise IndexError("dequeue from empty queue")
-        if not self.dequeue_stack:
-            # Move all items from enqueue_stack to dequeue_stack, reversing their order
-            while self.enqueue_stack:
-                self.dequeue_stack.append(self.enqueue_stack.pop())
-        return self.dequeue_stack.pop()
+    def pop(self):
+        if not self.st1:
+            print("Stack is empty")
+            return -1  # Representing empty stack
+        top_element = self.st1.pop()
+        return top_element
 
     def peek(self):
-        """Return the front item of the queue without removing it."""
-        if self.is_empty():
-            raise IndexError("peek from empty queue")
-        if not self.dequeue_stack:
-            while self.enqueue_stack:
-                self.dequeue_stack.append(self.enqueue_stack.pop())
-        return self.dequeue_stack[-1]
+        if not self.st1:
+            print("Stack is empty")
+            return -1
+        return self.st1[-1]
 
     def is_empty(self):
-        """Check if the queue is empty."""
-        return not (self.enqueue_stack or self.dequeue_stack)
-
-    def size(self):
-        """Return the number of items in the queue."""
-        return len(self.enqueue_stack) + len(self.dequeue_stack)
-
-    def __str__(self):
-        """Return a string representation of the queue for debugging."""
-        if not self.dequeue_stack:
-            return str(self.enqueue_stack[::-1])
-        if not self.enqueue_stack:
-            return str(self.dequeue_stack)
-        return str(self.dequeue_stack + self.enqueue_stack[::-1])
+        return not self.st1
 
 
 if __name__ == "__main__":
-    queue = QueueUsingStacks()
-    queue.enqueue(1)
-    queue.enqueue(2)
-    queue.enqueue(3)
-    print(f"Queue content = {queue}")
-    print(f"Dequeued item = {queue.dequeue()}")
-    print(f"Queue content = {queue}")
-    print(f"Front item after dequeue = {queue.peek()}")
-    print(f"Queue is empty = {queue.is_empty()}")
+    q = StackQueue()
+
+    # List of commands
+    commands = ["StackQueue", "push", "push", "pop", "peek", "isEmpty"]
+    # List of inputs
+    inputs = [[], [4], [8], [], [], []]
+
+    for i in range(len(commands)):
+        if commands[i] == "push":
+            q.push(inputs[i][0])
+            print("null", end=" ")
+        elif commands[i] == "pop":
+            print(q.pop(), end=" ")
+        elif commands[i] == "peek":
+            print(q.peek(), end=" ")
+        elif commands[i] == "isEmpty":
+            print("true" if q.is_empty() else "false", end=" ")
+        elif commands[i] == "StackQueue":
+            print("null", end=" ")
