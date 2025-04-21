@@ -18,6 +18,6 @@ def addition(n):
     return n + addition(n - 1)
 
 
-if __name__ == "__main__":
-    # add(5, 0)
-    print(addition(5))
+# add(5, 0)
+x = addition(5)
+print(x)

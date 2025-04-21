@@ -13,21 +13,47 @@ Space complexity -> O(1)
 """
 
 
-def deleteAllOccurrences(head: Node, k: int) -> Node:
-    if not head.next and head.data == k:
-        return None
-    temp = head
-    previous = None
-    new_head = head
-    while temp is not None:
-        front = temp.next
-        if temp.data == k:
-            if previous:
-                previous.next = temp.next
-            if temp.next:
-                temp.next.prev = previous
-            if temp == new_head:
-                new_head = new_head.next
-        previous = temp
-        temp = temp.next
-    return new_head
+# Definition for a node in the doubly linked list.
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
+#         self.prev = None
+
+
+# Definition for a node in the doubly linked list.
+# class Node:
+#     def __init__(self, data):
+#         self.data = data
+#         self.next = None
+#         self.prev = None
+
+
+class Solution:
+    def deleteAllOccurOfX(self, head, x):
+        if head is None:
+            return None
+
+        if head.next is None and head.data == x:
+            return None
+
+        temp = head
+        previous = None
+        new_head = head
+
+        while temp is not None:
+            front = temp.next
+
+            if temp.data == x:
+                if previous is not None:
+                    previous.next = front
+                if front is not None:
+                    front.prev = previous
+                if temp == new_head:
+                    new_head = front
+            else:
+                previous = temp
+
+            temp = front
+
+        return new_head

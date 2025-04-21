@@ -4,15 +4,15 @@ def reverse_list(lst, start, end):
     lst[start], lst[end] = lst[end], lst[start]
     reverse_list(lst, start + 1, end - 1)
 
-#Alternate Method using just one Index
+
+# Alternate Method using just one Index
 def revAr(arr, ind):
     n = len(arr)
-    if ind == n //2:
+    if ind == n // 2:
         print(arr)
         return
-    arr[ind], arr[n-1-ind] = arr[n-1-ind], arr[ind]
-    revAr(arr, ind+1)
-
+    arr[ind], arr[n - 1 - ind] = arr[n - 1 - ind], arr[ind]
+    revAr(arr, ind + 1)
 
 
 if __name__ == "__main__":
